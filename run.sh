@@ -194,6 +194,11 @@ echo "installing telegram   .. \n";
 sudo snap install telegram-desktop
 echo "telegram installed successfully \n";
 
+## install typora  
+echo "installing typora   .. \n";
+sudo snap install typora
+echo "typora installed successfully \n";
+
 
 # Create directories
 
