@@ -22,26 +22,6 @@ sudo add-apt-repository ppa:deadsnakes/ppa;
 # INSTALL CLI
 echo "\n\n Install cli tools .."
 
-
-## install docker 
-
-sudo apt remove docker docker-engine docker.io containerd runc;
-
-sudo apt install ca-certificates curl  gnupg lsb-release;
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg;
-
-echo  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update;
-sudo apt install docker-ce docker-ce-cli containerd.io;
-sudo apt-cache madison docker-ce;
-
-echo "\n enter VERSION_STRING : ";
-read DOCKER_VERSION_STRING;
-
-sudo apt install docker-ce=$DOCKER_VERSION_STRING docker-ce-cli=$DOCKER_VERSION_STRING containerd.io;
-
-sudo docker run hello-world;
-
 ## Install git 
 
 echo "\n\n\t install git"
@@ -104,6 +84,26 @@ echo "node installed successfully";
 node --version;
 echo "npm installed successfully";
 npm --version;
+
+
+## install docker 
+
+sudo apt remove docker docker-engine docker.io containerd runc;
+
+sudo apt install ca-certificates curl  gnupg lsb-release;
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg;
+
+echo  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update;
+sudo apt install docker-ce docker-ce-cli containerd.io;
+sudo apt-cache madison docker-ce;
+
+echo "\n enter VERSION_STRING : ";
+read DOCKER_VERSION_STRING;
+
+sudo apt install docker-ce=$DOCKER_VERSION_STRING docker-ce-cli=$DOCKER_VERSION_STRING containerd.io;
+
+sudo docker run hello-world;
 
 # Install apps with snap
 
@@ -189,10 +189,15 @@ echo "installing clion   .. \n";
 sudo snap install clion --classic;
 echo "clion installed successfully \n";
 
+## install telegram  
+echo "installing telegram   .. \n";
+sudo snap install telegram-desktop
+echo "telegram installed successfully \n";
+
 
 # Create directories
 
-mkdir ~/workshop && mkdir ~/workshop/tests
+mkdir ~/workshop && mkdir ~/workshop/tests && mkdir ~/notes;
 
 
 
