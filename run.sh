@@ -1,22 +1,23 @@
 # CHANGE PASSWORD
 
 echo "what is username ?"
-read base_username
+read base_username;
 echo "enter  $base_username  new password"
 sudo passwd $base_username;
 echo "enter  root  new password"
-sudo passwd $base_username;
+sudo passwd root;
 
 # UPDATE & UPGRADE
 
 ## pyhton ppa 
-sudo add-apt-repository ppa:deadsnakes/ppa;
 
-sudo apt update;
-sudo apt upgrade;
+sudo apt update -y;
+sudo apt upgrade -y;
 sudo apt autoremove;
 
 sudo apt install wget;
+sudo apt install curl;
+sudo add-apt-repository ppa:deadsnakes/ppa;
 
 # INSTALL CLI
 echo "\n\n Install cli tools .."
@@ -24,9 +25,9 @@ echo "\n\n Install cli tools .."
 
 ## install docker 
 
-sudo apt-get remove docker docker-engine docker.io containerd runc;
+sudo apt remove docker docker-engine docker.io containerd runc;
 
-sudo apt-get install ca-certificates curl  gnupg lsb-release;
+sudo apt install ca-certificates curl  gnupg lsb-release;
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg;
 
 echo  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -86,10 +87,10 @@ sudo g++ --version;
 ## install python
 
 ### dev tools
-sudo zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
+sudo apt zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
 
-sudo apt install software-properties-common
-sudo apt install python3.8
+sudo apt install software-properties-common -y;
+sudo apt install python3.8 -y;
 
 echo "install successfully ";
 sudo python --version;
@@ -106,7 +107,7 @@ npm --version;
 
 # Install apps with snap
 
-sudo apt install snapd;
+sudo apt install snapd -y;
 echo "snapcraft installed successfully\n";
 
 ## install todoist 
@@ -140,7 +141,7 @@ echo "installing anydesk .. \n";
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -;
 echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list;
 sudo apt update;
-sudo apt install anydesk;
+sudo apt install anydesk -y;
 
 echo "anydesk installed successfully\n";
 
