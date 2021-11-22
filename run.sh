@@ -17,6 +17,8 @@ sudo apt autoremove;
 
 sudo apt install wget;
 sudo apt install curl;
+sudo apt install gnutls-bin;
+sudo apt install openssl;
 sudo add-apt-repository ppa:deadsnakes/ppa;
 
 # INSTALL CLI
