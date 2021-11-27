@@ -2,10 +2,15 @@
 
 echo "what is username ?"
 read base_username;
-echo "enter  $base_username  new password"
+echo "enter  $base_username new password"
 sudo passwd $base_username;
 echo "enter  root  new password"
 sudo passwd root;
+
+# set image profile from github
+
+wget https://avatars.githubusercontent.com/u/10195233 -c -O $base_username
+mv $base_username /var/lib/AccountsService/icons/$base_username -f
 
 # UPDATE & UPGRADE
 
@@ -15,10 +20,7 @@ sudo apt update -y;
 sudo apt upgrade -y;
 sudo apt autoremove;
 
-sudo apt install wget;
-sudo apt install curl;
-sudo apt install gnutls-bin;
-sudo apt install openssl;
+sudo apt install wget curl openssl openssh-server -y
 sudo add-apt-repository ppa:deadsnakes/ppa;
 
 # INSTALL CLI
@@ -48,20 +50,15 @@ echo "\n Downloading golang";
 wget https://golang.org/dl/go1.17.3.linux-amd64.tar.gz -c ;
 rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
 
-echo "# GoLang CLI bin export " >> .bashrc && echo 'export PATH=$PATH:/usr/local/go/bin' >> .bashrc;
+echo "# GoLang EXPORT" >> ~/.bashrc && echo 'export GOPATH="$HOME/go"' >> ~/.bashrc && echo 'export GOBIN="$GOPATH/bin"' >> .bashrc && echo 'export PATH="$PATH:$GOBIN"' >> .bashrc;
 
-echo "install successfully ";
+echo "go install successfully ";
 sudo go version;
 
 ## Install c++ tools
 
- sudo apt install g++;
- 
-sudo apt install build-essential;
-sudo apt install libfontconfig1;
-sudo apt install mesa-common-dev;
-sudo apt install libglu1-mesa-dev -y;
-
+sudo apt install g++ -y;
+sudo apt install build-essential libfontconfig1 mesa-common-dev libglu1-mesa-dev -y
 
 echo "g++ compiler installed successfully ";
 sudo g++ --version;
@@ -112,6 +109,11 @@ sudo docker run hello-world;
 sudo apt install snapd -y;
 echo "snapcraft installed successfully\n";
 
+## install code 
+echo "installing vs code.. \n";
+sudo snap install code --classic;
+echo "vscode installed successfully\n";
+
 ## install todoist 
 echo "installing todoist.. \n";
 sudo snap install todoist;
@@ -122,10 +124,10 @@ echo "installing twist.. \n";
 sudo snap install twist;
 echo "twist installed successfully\n";
 
-## install code 
-echo "installing vs code.. \n";
-sudo snap install code --classic;
-echo "vscode installed successfully\n";
+## install vlc 
+echo "installing vlc.. \n";
+sudo snap install vlc;
+echo "vlc installed successfully\n";
 
 ## install sqlitebrowser 
 echo "installing sqlitebrowser .. \n";
@@ -150,7 +152,7 @@ echo "anydesk installed successfully\n";
 
 ## install filezilla 
 echo "installing filezilla .. \n";
-sudo apt install filezilla;
+sudo apt install filezilla -y;
 echo "filezilla installed successfully\n";
 
 
@@ -164,22 +166,15 @@ rm google-chrome-stable_current_amd64.deb -f;
 echo "google-chrome  installed successfully \n";
 
 
-## install android-studio  
-echo "installing android-studio   .. \n";
-sudo snap install android-studio --classic;
-echo "android-studio installed successfully \n";
-
+## install goland  
+echo "installing goland   .. \n";
+sudo snap install goland --classic;
+echo "goland installed successfully \n";
 
 ## install phpstorm  
 echo "installing phpstorm   .. \n";
 sudo snap install phpstorm --classic;
 echo "phpstorm installed successfully \n";
-
-
-## install goland  
-echo "installing goland   .. \n";
-sudo snap install goland --classic;
-echo "goland installed successfully \n";
 
 ## install pycharm  
 echo "installing pycharm   .. \n";
@@ -190,6 +185,11 @@ echo "pycharm installed successfully \n";
 echo "installing clion   .. \n";
 sudo snap install clion --classic;
 echo "clion installed successfully \n";
+
+## install android-studio  
+echo "installing android-studio   .. \n";
+sudo snap install android-studio --classic;
+echo "android-studio installed successfully \n";
 
 ## install telegram  
 echo "installing telegram   .. \n";
