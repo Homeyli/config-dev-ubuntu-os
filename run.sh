@@ -33,7 +33,7 @@ sudo apt install git -y;
 
 ## install php versions 5.6 & 7.3 & 7.4 & 8.0
 
-sudo apt install php5.6 && php7.3 && php7.4 && php8.0 -y;
+sudo apt install php5.6 php7.3 php7.4 php8.0 -y;
 echo "install composer";
 sudo apt install composer -y ;
 
@@ -48,9 +48,14 @@ echo "\n\n Installing golang";
 echo "\n Downloading golang";
 
 wget https://golang.org/dl/go1.17.3.linux-amd64.tar.gz -c ;
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
+echo "go download successfully ";
+echo "extracting go...";
 
-echo "# GoLang EXPORT" >> ~/.bashrc && echo 'export GOPATH="$HOME/go"' >> ~/.bashrc && echo 'export GOBIN="$GOPATH/bin"' >> .bashrc && echo 'export PATH="$PATH:$GOBIN"' >> .bashrc;
+sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz;
+
+echo "add go env in ~/.bashrc...";
+
+echo "# GoLang EXPORT" >> ~/.bashrc && echo 'export GOPATH="$HOME/go"' >> ~/.bashrc && echo 'export GOBIN="$GOPATH/bin"' >> .bashrc && echo 'export PATH="$PATH:$GOBIN"' >> .bashrc && echo 'export PATH="$PATH:/usr/local/go/bin"' >> .bashrc;
 
 echo "go install successfully ";
 sudo go version;
@@ -66,7 +71,7 @@ sudo g++ --version;
 ## install python
 
 ### dev tools
-sudo apt zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
+sudo apt zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
 
 sudo apt install software-properties-common -y;
 sudo apt install python3.8 -y;
@@ -77,7 +82,7 @@ sudo python --version;
 ## install npm and nodejs
 
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -;
-sudo apt install nodejs npm;
+sudo apt install node-gyp nodejs npm;
 
 echo "node installed successfully";
 node --version;
@@ -93,8 +98,8 @@ sudo apt install ca-certificates curl  gnupg lsb-release;
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg;
 
 echo  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update;
-sudo apt install docker-ce docker-ce-cli containerd.io;
+sudo apt update -y;
+sudo apt install docker-ce docker-ce-cli containerd.io -y;
 sudo apt-cache madison docker-ce;
 
 echo "\n enter VERSION_STRING : ";
@@ -148,7 +153,6 @@ sudo apt update;
 sudo apt install anydesk -y;
 
 echo "anydesk installed successfully\n";
-
 
 ## install filezilla 
 echo "installing filezilla .. \n";
@@ -205,19 +209,3 @@ echo "typora installed successfully \n";
 # Create directories
 
 mkdir ~/workshop && mkdir ~/workshop/tests && mkdir ~/notes;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
