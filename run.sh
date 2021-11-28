@@ -3,14 +3,14 @@
 echo "what is username ?"
 read base_username;
 echo "enter  $base_username new password"
-sudo passwd $base_username;
+passwd $base_username;
 echo "enter  root  new password"
 sudo passwd root;
 
 # set image profile from github
 
 wget https://avatars.githubusercontent.com/u/10195233 -c -O $base_username
-mv $base_username /var/lib/AccountsService/icons/$base_username -f
+sudo mv $base_username /var/lib/AccountsService/icons/$base_username -f
 
 # UPDATE & UPGRADE
 
