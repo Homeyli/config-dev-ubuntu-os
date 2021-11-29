@@ -38,7 +38,7 @@ sudo apt install git -y;
 
 ## install php versions 5.6 & 7.3 & 7.4 & 8.0
 
-sudo apt install php5.6 php7.3 php7.4 php7.4-mysql php8.0 php8.0-mysql php-xml php-mbstring -y;
+sudo apt install php5.6 php7.3 php7.4 php7.4-mysql php-pear php7.4-dev php8.0 php8.0-mysql php-xml php-mbstring -y;
 echo "install composer";
 sudo apt install composer -y ;
 
