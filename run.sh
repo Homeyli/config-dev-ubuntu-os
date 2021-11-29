@@ -12,16 +12,21 @@ sudo passwd root;
 wget https://avatars.githubusercontent.com/u/10195233 -c -O $base_username
 sudo mv $base_username /var/lib/AccountsService/icons/$base_username -f
 
-# UPDATE & UPGRADE
+## PPA
+# Python ppa
+sudo add-apt-repository ppa:deadsnakes/ppa;
+# PHP ppa
+sudo add-apt-repository ppa:ondrej/php
 
-## pyhton ppa 
+
+# UPDATE & UPGRADE
 
 sudo apt update -y;
 sudo apt upgrade -y;
 sudo apt autoremove;
 
-sudo apt install wget curl openssl openssh-server -y
-sudo add-apt-repository ppa:deadsnakes/ppa;
+sudo apt install wget curl openssl openssh-server apt-transport-https software-properties-common ca-certificates build-essential libfontconfig1 mesa-common-dev libglu1-mesa-dev zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
+
 
 # INSTALL CLI
 echo "\n\n Install cli tools .."
@@ -33,7 +38,7 @@ sudo apt install git -y;
 
 ## install php versions 5.6 & 7.3 & 7.4 & 8.0
 
-sudo apt install php5.6 php7.3 php7.4 php8.0 -y;
+sudo apt install php5.6 php7.3 php7.4 php8.0 php-xml php-mbstring -y;
 echo "install composer";
 sudo apt install composer -y ;
 
@@ -54,7 +59,6 @@ echo "extracting go...";
 sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz;
 
 echo "add go env in ~/.bashrc...";
-
 echo "# GoLang EXPORT" >> ~/.bashrc && echo 'export GOPATH="$HOME/go"' >> ~/.bashrc && echo 'export GOBIN="$GOPATH/bin"' >> .bashrc && echo 'export PATH="$PATH:$GOBIN"' >> .bashrc && echo 'export PATH="$PATH:/usr/local/go/bin"' >> .bashrc;
 
 echo "go install successfully ";
@@ -63,17 +67,12 @@ sudo go version;
 ## Install c++ tools
 
 sudo apt install g++ -y;
-sudo apt install build-essential libfontconfig1 mesa-common-dev libglu1-mesa-dev -y
 
 echo "g++ compiler installed successfully ";
 sudo g++ --version;
 
 ## install python
 
-### dev tools
-sudo apt zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
-
-sudo apt install software-properties-common -y;
 sudo apt install python3.8 -y;
 
 echo "install successfully ";
@@ -94,7 +93,7 @@ npm --version;
 
 sudo apt remove docker docker-engine docker.io containerd runc;
 
-sudo apt install ca-certificates curl  gnupg lsb-release;
+sudo apt install gnupg lsb-release;
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg;
 
 echo  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -208,4 +207,4 @@ echo "typora installed successfully \n";
 
 # Create directories
 
-mkdir ~/workshop && mkdir ~/workshop/tests && mkdir ~/notes;
+
