@@ -61,6 +61,7 @@ sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz;
 echo "add go env in ~/.bashrc...";
 echo "# GoLang EXPORT" >> ~/.bashrc && echo 'export GOPATH="$HOME/go"' >> ~/.bashrc && echo 'export GOBIN="$GOPATH/bin"' >> .bashrc && echo 'export PATH="$PATH:$GOBIN"' >> .bashrc && echo 'export PATH="$PATH:/usr/local/go/bin"' >> .bashrc;
 
+go env -w GO111MODULE=auto;
 echo "go install successfully ";
 sudo go version;
 
