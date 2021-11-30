@@ -25,7 +25,7 @@ sudo apt update -y;
 sudo apt upgrade -y;
 sudo apt autoremove;
 
-sudo apt install wget curl openssl openssh-server apt-transport-https software-properties-common ca-certificates build-essential libfontconfig1 mesa-common-dev libglu1-mesa-dev zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev unzip -y
+sudo apt install wget curl openssl openssh-server apt-transport-https software-properties-common ca-certificates build-essential libfontconfig1 mesa-common-dev libglu1-mesa-dev zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev unzip mlocate -y
 
 
 # INSTALL CLI
@@ -39,7 +39,10 @@ sudo apt install git -y;
 ## install php versions 5.6 & 7.3 & 7.4 & 8.0
 
 sudo apt install php5.6 php7.3 php7.4 php7.4-mysql php-pear php7.4-dev php8.0 php8.0-mysql php-xml php-mbstring -y;
-echo "install composer";
+#install trader lib
+sudo pecl install trader
+
+echo "install composer ..";
 sudo apt install composer -y ;
 
 echo "# Composer CLI bin export " >> .bashrc && echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> .bashrc;
