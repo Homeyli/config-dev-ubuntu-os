@@ -25,8 +25,7 @@ sudo apt update -y;
 sudo apt upgrade -y;
 sudo apt autoremove;
 
-sudo apt install wget curl openssl openssh-server apt-transport-https software-properties-common ca-certificates build-essential libfontconfig1 mesa-common-dev libglu1-mesa-dev zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev unzip mlocate -y
-
+sudo apt install wget curl openssl openssh-server apt-transport-https software-properties-common ca-certificates build-essential libfontconfig1 mesa-common-dev libglu1-mesa-dev zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev unzip mlocate python3-pydrive -y
 
 # INSTALL CLI
 echo "\n\n Install cli tools .."
