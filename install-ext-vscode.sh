@@ -28,6 +28,7 @@ code --install-extension PKief.material-icon-theme;
 
 # DOCKER 
 code --install-extension ms-azuretools.vscode-docker;
+code --install-extension ms-vscode-remote.remote-containers
 
 # GIT
 code --install-extension eamodio.gitlens;
