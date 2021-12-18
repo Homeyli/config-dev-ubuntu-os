@@ -83,8 +83,7 @@ sudo python --version;
 
 ## install npm and nodejs
 
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -;
-sudo apt install node-gyp nodejs npm;
+#sudo apt install node-gyp nodejs npm;
 
 echo "node installed successfully";
 node --version;
@@ -120,6 +119,9 @@ echo "snapcraft installed successfully\n";
 echo "installing vs code.. \n";
 sudo snap install code --classic;
 echo "vscode installed successfully\n";
+
+#install ext
+sh install-ext-vscode.sh ;
 
 ## install todoist 
 echo "installing todoist.. \n";
@@ -172,25 +174,6 @@ rm google-chrome-stable_current_amd64.deb -f;
 echo "google-chrome  installed successfully \n";
 
 
-## install goland  
-echo "installing goland   .. \n";
-sudo snap install goland --classic;
-echo "goland installed successfully \n";
-
-## install phpstorm  
-echo "installing phpstorm   .. \n";
-sudo snap install phpstorm --classic;
-echo "phpstorm installed successfully \n";
-
-## install pycharm  
-echo "installing pycharm   .. \n";
-sudo snap install pycharm-professional --classic;
-echo "pycharm installed successfully \n";
-
-## install clion  
-echo "installing clion   .. \n";
-sudo snap install clion --classic;
-echo "clion installed successfully \n";
 
 ## install android-studio  
 echo "installing android-studio   .. \n";

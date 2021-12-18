@@ -1,0 +1,12 @@
++ darking 
++ change dock size
++ change common-password
+
+edit file : /etc/pam.d/common-password
+add minlen=2 and remove ob..
+
+password	[success=1 default=ignore]	pam_unix.so minlen=2 sha512
+
++ add lang
+
+
